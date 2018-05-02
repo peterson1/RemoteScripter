@@ -9,27 +9,28 @@ namespace RemoteScripter.RequesterApp.Configuration
     {
         public RequesterArguments()
         {
-            Parse(Environment.GetCommandLineArgs());
+            //Parse(Environment.GetCommandLineArgs());
         }
 
 
-        public string UpdatedCopyPath { get; private set; }
+        public string  UpdatedCopyPath   { get; }
+        //public string  RequestsFilePath  { get; private set; }
 
 
-        private void Parse(string[] commandLineArgs)
-        {
-            var options = new OptionSet
-            {
-                {"exe|origexe="  , "Original exe path" , exe => UpdatedCopyPath = exe  },
-            };
-            try
-            {
-                options.Parse(commandLineArgs);
-            }
-            catch (Exception ex)
-            {
-                Alert.Show(ex.Message);
-            }
-        }
+        //private void Parse(string[] commandLineArgs)
+        //{
+        //    var options = new OptionSet
+        //    {
+        //        {"exe|origexe="  , "Original exe path" , exe => UpdatedCopyPath = exe  },
+        //    };
+        //    try
+        //    {
+        //        options.Parse(commandLineArgs);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Alert.Show(ex.Message);
+        //    }
+        //}
     }
 }

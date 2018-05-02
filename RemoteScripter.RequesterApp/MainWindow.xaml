@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="{Binding Caption}" 
         WindowStartupLocation="CenterScreen"
-        Width="1360" Height="700"
+        SizeToContent="WidthAndHeight"
         xmlns:busy="clr-namespace:CommonTools.Lib45.BusyIndicators;assembly=CommonTools.Lib45"
         xmlns:butns="clr-namespace:CommonTools.Lib45.StyledButtons;assembly=CommonTools.Lib45"
         xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -22,6 +22,15 @@
         <butns:UpdatedExeNotifierBar DataContext="{Binding UpdateNotifier}"
                                      DockPanel.Dock="Top" />
         <Grid>
+
+            <StackPanel Margin="30">
+                <Button Command="{Binding SendRequestCmd}"
+                        Content="{Binding SendRequestCmd.CurrentLabel}" />
+
+                <Button Command="{Binding CheckResponseCmd}"
+                        Content="{Binding CheckResponseCmd.CurrentLabel}"
+                        Margin="0 20 0 0" />
+            </StackPanel>
 
             <busy:BusyDialog />
         </Grid>
