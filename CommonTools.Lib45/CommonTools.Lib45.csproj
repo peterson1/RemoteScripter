@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99F75C45-0E98-41FB-A9D9-C662A56E98C8}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>CommonTools.Lib45</RootNamespace>
+    <AssemblyName>CommonTools.Lib45</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LiteDB, Version=4.1.2.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.4.1.2\lib\net40\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.4.0.1044, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.4.0.1044\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=2.5.4.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.2.5.4\lib\netstandard1.0\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ValueConverters\DecimalProxyConverter.cs" />
+    <Compile Include="ValueConverters\FirstLetterConverter.cs" />
+    <Compile Include="ValueConverters\SpanDaysConverter.cs" />
+    <Compile Include="ValueConverters\TrueIfFalseConverter.cs" />
+    <Compile Include="ValueConverters\UnderscoreToSpaceConverter.cs" />
+    <Compile Include="ValueConverters\VisibleIfFalseConverter.cs" />
+    <Compile Include="ValueConverters\VisibleIfNotNullConverter.cs" />
+    <Compile Include="ValueConverters\VisibleIfNotZeroConverter.cs" />
+    <Compile Include="ValueConverters\VisibleIfTrueConverter.cs" />
+    <Page Include="BusyIndicators\BusyDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InputDialogs\PopUpInputDateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InputDialogs\PopUpInputDecimalWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InputDialogs\PopUpInputIndexWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InputDialogs\PopUpInputIntWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InputDialogs\PopUpInputStringWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PrintTools\DataGridPaginatorResourceDictionary1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StyledButtons\EncodeNewDraftBtn1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StyledButtons\SimpleRefreshButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StyledButtons\UpdatedExeNotifierBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="ApplicationTools\ApplicationInitializer.cs" />
+    <Compile Include="BaseViewModels\CrudWindowVMBase.cs" />
+    <Compile Include="BaseViewModels\FilteredSavedListVMBase.cs" />
+    <Compile Include="BaseViewModels\IndirectFilteredListVMBase.cs" />
+    <Compile Include="BaseViewModels\MainWindowVMBase.cs" />
+    <Compile Include="BaseViewModels\SavedListVMBase.cs" />
+    <Compile Include="BaseViewModels\TextFilterBase.cs" />
+    <Compile Include="BaseViewModels\UpdatedExeVMBase.cs" />
+    <Compile Include="BusyIndicators\BusyDialog.xaml.cs">
+      <DependentUpon>BusyDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cryptography\AESThenHMAC.cs" />
+    <Compile Include="FileSystemTools\Base64FileIO.cs" />
+    <Compile Include="FileSystemTools\ClonedCopyExeUpdater.cs" />
+    <Compile Include="FileSystemTools\CurrentExeTools.cs" />
+    <Compile Include="FileSystemTools\FileChangeWatcher1.cs" />
+    <Compile Include="FileSystemTools\FilePathExtensions.cs" />
+    <Compile Include="FileSystemTools\IHasUpdatedCopy.cs" />
+    <Compile Include="FileSystemTools\JsonFileReader.cs" />
+    <Compile Include="FileSystemTools\JsonFileWriter.cs" />
+    <Compile Include="FileSystemTools\ReverseLineReader.cs" />
+    <Compile Include="FileSystemTools\ThrottledFileWatcher1.cs" />
+    <Compile Include="FileSystemTools\UpdatedExeNotifier.cs" />
+    <Compile Include="FileSystemTools\UpdatedFileNotifier.cs" />
+    <Compile Include="InputCommands\ExeLauncherCommand.cs" />
+    <Compile Include="InputCommands\R2AsyncCommandWPF.cs" />
+    <Compile Include="InputCommands\R2CommandsFactory.cs" />
+    <Compile Include="InputCommands\TempExeLauncherCommand.cs" />
+    <Compile Include="InputDialogs\PopUpInput.cs" />
+    <Compile Include="InputDialogs\PopUpInputDate.cs" />
+    <Compile Include="InputDialogs\PopUpInputDateWindow.xaml.cs">
+      <DependentUpon>PopUpInputDateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialogs\PopUpInputDecimal.cs" />
+    <Compile Include="InputDialogs\PopUpInputDecimalWindow.xaml.cs">
+      <DependentUpon>PopUpInputDecimalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialogs\PopUpInputIndex.cs" />
+    <Compile Include="InputDialogs\PopUpInputIndexWindow.xaml.cs">
+      <DependentUpon>PopUpInputIndexWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialogs\PopUpInputInt.cs" />
+    <Compile Include="InputDialogs\PopUpInputIntWindow.xaml.cs">
+      <DependentUpon>PopUpInputIntWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialogs\PopUpInputString.cs" />
+    <Compile Include="InputDialogs\PopUpInputStringWindow.xaml.cs">
+      <DependentUpon>PopUpInputStringWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LicenseTools\SeatLicenser.cs" />
+    <Compile Include="LiteDbTools\DbMetadata.cs" />
+    <Compile Include="LiteDbTools\MetadataCollection.cs" />
+    <Compile Include="LiteDbTools\NamedCollectionBase.cs" />
+    <Compile Include="LiteDbTools\SharedCollectionBase_Connects.cs" />
+    <Compile Include="LiteDbTools\SharedCollectionBase_Reads.cs" />
+    <Compile Include="LiteDbTools\SharedCollectionBase_Writes.cs" />
+    <Compile Include="LiteDbTools\SharedLiteDB.cs" />
+    <Compile Include="PrintTools\DataGridPrintExtensions.cs" />
+    <Compile Include="PrintTools\MatelichDataGridPaginator.cs" />
+    <Compile Include="PrintTools\PageRangeDocumentPaginator.cs" />
+    <Compile Include="StyledButtons\EncodeNewDraftBtn1.xaml.cs">
+      <DependentUpon>EncodeNewDraftBtn1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StyledButtons\SimpleRefreshButton.xaml.cs">
+      <DependentUpon>SimpleRefreshButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StyledButtons\UpdatedExeNotifierBar.xaml.cs">
+      <DependentUpon>UpdatedExeNotifierBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThreadTools\ProcessKiller.cs" />
+    <Compile Include="ThreadTools\ThisThread.cs" />
+    <Compile Include="ThreadTools\ThreadedMessageBox.cs" />
+    <Compile Include="ThreadTools\UIThreadInvoker.cs" />
+    <Compile Include="UIBehaviors\TextBoxBehaviors\SelectAllOnFocusBehavior.cs" />
+    <Compile Include="UIExtensions\ConfirmToDeleteExtensions.cs" />
+    <Compile Include="UIExtensions\CurrentItemDataGridExtensions.cs" />
+    <Compile Include="UIExtensions\ListScrollerExtensions.cs" />
+    <Compile Include="UIExtensions\StylePropertySetters.cs" />
+    <Compile Include="UIExtensions\UIValidationExtensions.cs" />
+    <Compile Include="UIExtensions\WindowExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonTools.Lib11\CommonTools.Lib11.csproj">
+      <Project>{ed67cb51-9654-4639-a7b2-1e1e77fd39df}</Project>
+      <Name>CommonTools.Lib11</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+    <Resource Include="loading.png" />
+    <Resource Include="NugetPackages.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.3.0.3\build\Fody.targets" Condition="Exists('..\packages\Fody.3.0.3\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.3.0.3\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.0.3\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.2.0.0\build\Costura.Fody.targets')" />
+</Project>
