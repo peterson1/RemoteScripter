@@ -1,4 +1,4 @@
-﻿using CommonTools.Lib11.GoogleTools;
+﻿using CommonTools.Lib11.StringTools;
 using CommonTools.Lib45.FileSystemTools;
 using PropertyChanged;
 
@@ -6,7 +6,7 @@ namespace CommonTools.Lib45.BaseViewModels
 {
     [AddINotifyPropertyChangedInterface]
     public abstract class UpdatedExeVMBase<TArg> : MainWindowVMBase<TArg>
-        where TArg : ICredentialsProvider, IHasUpdatedCopy
+        where TArg : IHasUpdatedCopy
     {
         public UpdatedExeVMBase(TArg appArguments) : base(appArguments)
         {

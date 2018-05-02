@@ -21,7 +21,8 @@ namespace CommonTools.Lib45.FileSystemTools
         {
             WatchedFile = fileToWatch;
             ExecuteCmd  = R2Command.Relay(OnExecuteClick);
-            InitializeFileWatcher();
+            if (!fileToWatch.IsBlank())
+                InitializeFileWatcher();
         }
 
 

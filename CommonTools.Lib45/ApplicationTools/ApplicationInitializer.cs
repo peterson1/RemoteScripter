@@ -11,7 +11,7 @@ namespace CommonTools.Lib45.ApplicationTools
     public static class AppInitializer
     {
         public static void Initialize<TArg>(this Application app, Action<TArg> actionOnArguments)
-            where TArg : ICredentialsProvider, new()
+            where TArg : new()
         {
             HandleGlobalErrors();
             ThisThread.SetShortDateFormat("d MMM yyyy");

@@ -15,3 +15,4 @@ for each exe:
 Install-Package PropertyChanged.Fody
 Install-Package Costura.Fody
 Install-Package Mono.Options
+Install-Package MaterialDesignThemes

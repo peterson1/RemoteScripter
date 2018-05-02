@@ -1,5 +1,4 @@
-﻿using CommonTools.Lib11.GoogleTools;
-using CommonTools.Lib11.InputCommands;
+﻿using CommonTools.Lib11.InputCommands;
 using CommonTools.Lib45.FileSystemTools;
 using CommonTools.Lib45.InputCommands;
 using CommonTools.Lib45.ThreadTools;
@@ -13,7 +12,6 @@ namespace CommonTools.Lib45.BaseViewModels
 {
     [AddINotifyPropertyChangedInterface]
     public abstract class MainWindowVMBase<TArg>
-        where TArg : ICredentialsProvider
     {
         protected string RefreshingText = "Refreshing list of records...";
         protected abstract string CaptionPrefix { get; }
@@ -26,7 +24,8 @@ namespace CommonTools.Lib45.BaseViewModels
             AppArgs        = appArguments;
             RefreshCmd     = R2Command.Async(DoRefresh, _ => !IsBusy, "Refresh");
             CloseWindowCmd = R2Command.Relay(CloseWindow, null, "Close Window");
-            SetCaption($"as {AppArgs?.Credentials?.NameAndRole ?? "Anonymous"}");
+            //SetCaption($"as {AppArgs?.Credentials?.NameAndRole ?? "Anonymous"}");
+            SetCaption(".");
         }
 
 
