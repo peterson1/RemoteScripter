@@ -1,4 +1,5 @@
 ﻿using PropertyChanged;
+using CommonTools.Lib11.StringTools;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -22,6 +23,8 @@ namespace CommonTools.Lib45.FileSystemTools
 
         private void RelaunchIfOutdated()
         {
+            if (WatchedFile.IsBlank()) return;
+            if (!File.Exists(WatchedFile)) return;
             var thisHash   = CurrentExe.GetFullPath().SHA1ForFile();
             var watchdHash = WatchedFile.SHA1ForFile();
             if (thisHash == watchdHash) return;

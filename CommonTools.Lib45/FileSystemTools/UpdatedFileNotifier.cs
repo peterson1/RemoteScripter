@@ -37,12 +37,8 @@ namespace CommonTools.Lib45.FileSystemTools
 
         private void InitializeFileWatcher()
         {
-            if (WatchedFile.IsBlank())
-                throw Fault.NullRef(nameof(WatchedFile));
-
-            if (!File.Exists(WatchedFile))
-                throw Fault.MissingFile(WatchedFile);
-
+            if (WatchedFile.IsBlank()) return;
+            if (!File.Exists(WatchedFile)) return;
             var abs = WatchedFile.MakeAbsolute();
             var dir = Path.GetDirectoryName(abs);
             var nme = Path.GetFileName(abs);

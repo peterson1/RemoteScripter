@@ -1,4 +1,5 @@
 ﻿using CommonTools.Lib11.InputCommands;
+using CommonTools.Lib11.StringTools;
 using CommonTools.Lib45.BaseViewModels;
 using CommonTools.Lib45.InputCommands;
 using PropertyChanged;
@@ -20,7 +21,7 @@ namespace RemoteScripter.RequesterApp
 
         public RequesterMainVM(RequesterArguments appArguments) : base(appArguments)
         {
-            SendRequestCmd = R2Command.Relay(SendRequest, _ => !IsBusy, "Send Request");
+            SendRequestCmd   = R2Command.Relay(SendRequest, _ => !IsBusy, "Send Request");
             CheckResponseCmd = R2Command.Async(CheckResponse, null, "Check Response");
             GenerateNewRequestKey();
         }
@@ -51,6 +52,10 @@ namespace RemoteScripter.RequesterApp
 
 
         private void GenerateNewRequestKey()
-            => _reqKey = DateTime.Now.ToLongTimeString();
+        {
+            var now = DateTime.Now;
+            _reqKey = L.f + now.ToLongDateString()
+                   + ", " + now.ToLongTimeString();
+        }
     }
 }
