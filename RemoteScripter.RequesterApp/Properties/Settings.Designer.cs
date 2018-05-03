@@ -34,7 +34,7 @@ namespace RemoteScripter.RequesterApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\__shared_folder__\\Requests.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Requests.txt")]
         public string RequestsFilePath {
             get {
                 return ((string)(this["RequestsFilePath"]));
@@ -46,7 +46,7 @@ namespace RemoteScripter.RequesterApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\__shared_folder__\\Responses.txt")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Responses.txt")]
         public string ResponsesFilePath {
             get {
                 return ((string)(this["ResponsesFilePath"]));

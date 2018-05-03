@@ -24,6 +24,9 @@
         <Grid>
 
             <StackPanel Margin="30">
+
+                <TextBlock Text="debug lang" />
+
                 <Button Command="{Binding SendRequestCmd}"
                         Content="{Binding SendRequestCmd.CurrentLabel}" />
 

@@ -16,6 +16,17 @@ namespace CommonTools.Lib45.FileSystemTools
         public UpdatedExeNotifier(string fileToWatch) : base(fileToWatch)
         {
             _args = GetCommandLineArgs();
+            RelaunchIfOutdated();
+        }
+
+
+        private void RelaunchIfOutdated()
+        {
+            var thisHash   = CurrentExe.GetFullPath().SHA1ForFile();
+            var watchdHash = WatchedFile.SHA1ForFile();
+            if (thisHash == watchdHash) return;
+            OnFileChanged();
+            OnExecuteClick();
         }
 
 
@@ -44,8 +55,6 @@ namespace CommonTools.Lib45.FileSystemTools
         protected override void OnExecuteClick()
         {
             Process.Start(_tempExe, _args);
-            //MessageBox.Show(_tempExe, "_tempExe");
-            //MessageBox.Show(_args, "_args");
             Application.Current.Shutdown();
         }
 
