@@ -6,6 +6,7 @@ using RemoteScripter.ResponderApp.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using static RemoteScripter.ResponderApp.Properties.Settings;
 
 namespace RemoteScripter.ResponderApp
@@ -25,7 +26,7 @@ namespace RemoteScripter.ResponderApp
             CreateMissingFiles();
 
             _watchr = Default.RequestsFilePath
-                .OnFileChanged(() => OnChangeDetected());
+                .OnFileChanged(async () => await OnChangeDetected());
             
             ClickRefresh();
         }
@@ -49,8 +50,9 @@ namespace RemoteScripter.ResponderApp
         }
 
 
-        private void OnChangeDetected()
+        private async Task OnChangeDetected()
         {
+            await Task.Delay(Default.OnChangeDelayMS);
             var reqs  = Default.RequestsFilePath;
             var key   = File.ReadLines(reqs).Last().Trim();
             var resps = Default.ResponsesFilePath;

@@ -70,5 +70,14 @@ namespace RemoteScripter.ResponderApp.Properties {
                 this["ProcessPathToRun"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int OnChangeDelayMS {
+            get {
+                return ((int)(this["OnChangeDelayMS"]));
+            }
+        }
     }
 }

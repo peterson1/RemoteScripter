@@ -7,7 +7,6 @@ using PropertyChanged;
 using RemoteScripter.RequesterApp.Configuration;
 using System;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using static RemoteScripter.RequesterApp.Properties.Settings;
@@ -22,8 +21,6 @@ namespace RemoteScripter.RequesterApp
 
         public RequesterMainVM(RequesterArguments appArguments) : base(appArguments)
         {
-            CheckDelayMS      = Default.CheckDelayMS;
-            RequestingMessage = Default.RequestingMessage;
             RequestAndWaitCmd = R2Command.Async(RequestAndWait, _ => !IsBusy, "Re-send the Request");
             RequestAndWaitCmd.ExecuteIfItCan();
         }
@@ -31,14 +28,12 @@ namespace RemoteScripter.RequesterApp
 
         public IR2Command  RequestAndWaitCmd  { get; }
         public string      BadMessage         { get; private set; }
-        public int         CheckDelayMS       { get; }
-        public string      RequestingMessage  { get; }
 
 
         private async Task RequestAndWait()
         {
             BadMessage = "";
-            StartBeingBusy(RequestingMessage);
+            StartBeingBusy(Default.RequestingMessage);
 
             if (await SendAndCheckTwice())
             {
@@ -56,11 +51,11 @@ namespace RemoteScripter.RequesterApp
         {
             var key = SendNewRequest();
 
-            await Task.Delay(CheckDelayMS);
+            await Task.Delay(Default.CheckDelayMS);
             if (ResponsesContainsKey(key)) return true;
 
             StartBeingBusy("Waiting for response ...");
-            await Task.Delay(CheckDelayMS);
+            await Task.Delay(Default.CheckDelayMS);
 
             return ResponsesContainsKey(key);
         }

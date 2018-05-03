@@ -1,4 +1,5 @@
 ﻿using CommonTools.Lib11.StringTools;
+using CommonTools.Lib45.ThreadTools;
 using PropertyChanged;
 using System;
 using System.Diagnostics;
@@ -55,7 +56,10 @@ namespace CommonTools.Lib45.FileSystemTools
         {
             _tempExe = CopyWatchedToTemp();
             if (ExecuteOnFileChanged)
-                ExecuteCmd.ExecuteIfItCan();
+            {
+                UIThread.Run(() =>
+                    ExecuteCmd.ExecuteIfItCan());
+            }
         }
 
         protected override void OnExecuteClick()
@@ -73,5 +77,8 @@ namespace CommonTools.Lib45.FileSystemTools
             File.Copy(WatchedFile, tmp, true);
             return tmp;
         }
+
+
+        //private string GetTempFileName()
     }
 }
