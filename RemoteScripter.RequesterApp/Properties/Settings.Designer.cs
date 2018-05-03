@@ -55,5 +55,23 @@ namespace RemoteScripter.RequesterApp.Properties {
                 this["ResponsesFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3000")]
+        public int CheckDelayMS {
+            get {
+                return ((int)(this["CheckDelayMS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Requesting from target ...")]
+        public string RequestingMessage {
+            get {
+                return ((string)(this["RequestingMessage"]));
+            }
+        }
     }
 }

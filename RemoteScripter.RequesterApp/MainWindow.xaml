@@ -25,11 +25,11 @@
 
             <StackPanel Margin="30">
 
-                <Button Command="{Binding SendRequestCmd}"
-                        Content="{Binding SendRequestCmd.CurrentLabel}" />
+                <TextBlock Text="{Binding BadMessage}"
+                           Margin="0 20 0 0" />
 
-                <Button Command="{Binding CheckResponseCmd}"
-                        Content="{Binding CheckResponseCmd.CurrentLabel}"
+                <Button Command="{Binding RequestAndWaitCmd}"
+                        Content="{Binding RequestAndWaitCmd.CurrentLabel}"
                         Margin="0 20 0 0" />
             </StackPanel>
 
