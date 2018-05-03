@@ -19,11 +19,25 @@ namespace RemoteScripter.ResponderApp
 
         public ResponderMainVM(ResponderArguments appArguments) : base(appArguments)
         {
+            ProcessPath = Default.ProcessPathToRun;
+
             UpdateNotifier.ExecuteOnFileChanged = true;
             CreateMissingFiles();
 
             _watchr = Default.RequestsFilePath
                 .OnFileChanged(() => OnChangeDetected());
+            
+            ClickRefresh();
+        }
+
+
+        public string  CommandToRun { get; private set; }
+        public string  ProcessPath  { get; }
+
+
+        protected override void OnRefreshClicked()
+        {
+            CommandToRun = File.ReadAllText(ProcessPath);
         }
 
 
@@ -52,7 +66,7 @@ namespace RemoteScripter.ResponderApp
             File.AppendAllText(Default
                 .ResponsesFilePath, L.f + requestKey);
 
-            Process.Start(Default.ProcessPathToRun);
+            Process.Start(ProcessPath);
 
             StopBeingBusy();
 
