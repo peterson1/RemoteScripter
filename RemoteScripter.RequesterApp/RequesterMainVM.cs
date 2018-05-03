@@ -70,9 +70,7 @@ namespace RemoteScripter.RequesterApp
         {
             var file = Default.ResponsesFilePath;
             if (!File.Exists(file)) return false;
-            var text = key.Trim();
-            return File.ReadLines(file)
-                .Any(_ => _.Contains(text));
+            return file.FileContains(key.Trim());
         }
 
 

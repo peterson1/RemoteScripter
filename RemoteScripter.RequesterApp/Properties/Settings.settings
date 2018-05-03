@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RemoteScripter.RequesterApp.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="UpdatedCopyPath" Type="System.String" Scope="Application">
+    <Setting Name="UpdatedCopyPath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Users\__username_here__\Google Drive\MSA_Deploy\RS.Requester.exe</Value>
     </Setting>
     <Setting Name="RequestsFilePath" Type="System.String" Scope="User">

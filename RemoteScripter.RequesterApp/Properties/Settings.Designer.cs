@@ -23,12 +23,15 @@ namespace RemoteScripter.RequesterApp.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\__username_here__\\Google Drive\\MSA_Deploy\\RS.Requester.exe")]
         public string UpdatedCopyPath {
             get {
                 return ((string)(this["UpdatedCopyPath"]));
+            }
+            set {
+                this["UpdatedCopyPath"] = value;
             }
         }
         

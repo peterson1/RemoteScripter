@@ -1,5 +1,5 @@
-﻿using PropertyChanged;
-using CommonTools.Lib11.StringTools;
+﻿using CommonTools.Lib11.StringTools;
+using PropertyChanged;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -51,9 +51,12 @@ namespace CommonTools.Lib45.FileSystemTools
         }
 
 
-        protected override void OnFileChanged() 
-            => _tempExe = CopyWatchedToTemp();
-
+        protected override void OnFileChanged()
+        {
+            _tempExe = CopyWatchedToTemp();
+            if (ExecuteOnFileChanged)
+                ExecuteCmd.ExecuteIfItCan();
+        }
 
         protected override void OnExecuteClick()
         {

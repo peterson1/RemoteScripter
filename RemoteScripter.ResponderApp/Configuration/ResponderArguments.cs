@@ -1,7 +1,9 @@
 ﻿using CommonTools.Lib45.FileSystemTools;
 using CommonTools.Lib45.ThreadTools;
+using CommonTools.Lib11.StringTools;
 using Mono.Options;
 using System;
+using static RemoteScripter.ResponderApp.Properties.Settings;
 
 namespace RemoteScripter.ResponderApp.Configuration
 {
@@ -10,6 +12,9 @@ namespace RemoteScripter.ResponderApp.Configuration
         public ResponderArguments()
         {
             Parse(Environment.GetCommandLineArgs());
+
+            if (UpdatedCopyPath.IsBlank())
+                UpdatedCopyPath = Default.UpdatedCopyPath;
         }
 
 

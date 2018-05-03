@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RemoteScripter.ResponderApp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UpdatedCopyPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\__username_here__\Google Drive\MSA_Deploy\RS.Responder.exe</Value>
+    </Setting>
+    <Setting Name="RequestsFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\..\..\RemoteScripter.RequesterApp\bin\Debug\Requests.txt</Value>
+    </Setting>
+    <Setting Name="ResponsesFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">..\..\..\RemoteScripter.RequesterApp\bin\Debug\Responses.txt</Value>
+    </Setting>
+    <Setting Name="ProcessPathToRun" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ProcessToRun.bat</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

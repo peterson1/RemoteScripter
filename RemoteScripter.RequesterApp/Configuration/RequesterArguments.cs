@@ -19,7 +19,6 @@ namespace RemoteScripter.RequesterApp.Configuration
 
 
         public string  UpdatedCopyPath   { get; private set; }
-        //public string  RequestsFilePath  { get; private set; }
 
 
         private void Parse(string[] commandLineArgs)

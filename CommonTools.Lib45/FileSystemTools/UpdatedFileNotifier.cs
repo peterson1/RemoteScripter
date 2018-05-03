@@ -26,9 +26,10 @@ namespace CommonTools.Lib45.FileSystemTools
         }
 
 
-        public string      WatchedFile    { get; }
-        public IR2Command  ExecuteCmd     { get; }
-        public bool        IsFileChanged  { get; private set; }
+        public string      WatchedFile          { get; }
+        public IR2Command  ExecuteCmd           { get; }
+        public bool        IsFileChanged        { get; private set; }
+        public bool        ExecuteOnFileChanged { get; set; }
 
 
         protected virtual void OnExecuteClick () { }
