@@ -77,10 +77,6 @@
                 <Setter Property="TextAlignment" Value="Right" />
                 <Setter Property="FontStyle" Value="Italic" />
             </Style>
-            <Style x:Key="colHdrCentered" TargetType="DataGridColumnHeader"
-                   BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                <Setter Property="HorizontalAlignment" Value="Center"/>
-            </Style>
             <Style x:Key="dgReadOnly" TargetType="DataGrid" 
                    BasedOn="{StaticResource MaterialDesignDataGrid}">
                 <Style.Resources>
