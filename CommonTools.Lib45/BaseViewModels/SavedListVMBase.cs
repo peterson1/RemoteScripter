@@ -3,7 +3,6 @@ using CommonTools.Lib11.DataStructures;
 using CommonTools.Lib11.GoogleTools;
 using CommonTools.Lib11.InputCommands;
 using CommonTools.Lib45.InputCommands;
-using CommonTools.Lib45.LiteDbTools;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,8 @@ namespace CommonTools.Lib45.BaseViewModels
         where TDTO : IDocumentDTO
         where TArg : ICredentialsProvider
     {
-        public event EventHandler<decimal>       TotalSumChanged;
+        public event EventHandler<decimal> TotalSumChanged;
+        public event EventHandler<TDTO>    SelectedChanged;
 
         private ISimpleRepo<TDTO> _repo;
 
@@ -39,14 +39,20 @@ namespace CommonTools.Lib45.BaseViewModels
         public TArg          AppArgs    { get; }
         public IR2Command    RefreshCmd { get; }
         public UIList<TDTO>  ItemsList  { get; } = new UIList<TDTO>();
+        public TDTO          Selected   { get; set; }
         public decimal       TotalSum   { get; private set; }
 
 
-        protected abstract Func<TDTO, decimal> SummedAmount { get; }
+        protected virtual Func<TDTO, decimal> SummedAmount { get; }
         protected virtual bool CanDeletetRecord    (TDTO rec) => true;
         protected virtual bool CanEditRecord       (TDTO rec) => true;
         protected virtual void LoadRecordForEditing(TDTO rec) { }
         protected virtual IEnumerable<TDTO> PostProcessQueried(IEnumerable<TDTO> items) => items;
+
+        protected virtual void OnSelectedChanged()
+        {
+            SelectedChanged?.Invoke(this, Selected);
+        }
 
 
         private void ExecuteDeleteRecord(TDTO dto)
