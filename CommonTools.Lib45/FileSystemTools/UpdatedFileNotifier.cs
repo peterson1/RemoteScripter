@@ -33,7 +33,16 @@ namespace CommonTools.Lib45.FileSystemTools
 
 
         protected virtual void OnExecuteClick () { }
-        protected virtual void OnFileChanged  () { }
+
+
+        protected virtual void OnFileChanged()
+        {
+            if (ExecuteOnFileChanged)
+            {
+                UIThread.Run(() =>
+                    ExecuteCmd.ExecuteIfItCan());
+            }
+        }
 
 
         private void InitializeFileWatcher()

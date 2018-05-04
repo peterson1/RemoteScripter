@@ -54,7 +54,7 @@ namespace RemoteScripter.ResponderApp
         {
             await Task.Delay(Default.OnChangeDelayMS);
             var reqs  = Default.RequestsFilePath;
-            var key   = File.ReadLines(reqs).Last().Trim();
+            var key   = File.ReadLines(reqs).ToList().Last().Trim();
             var resps = Default.ResponsesFilePath;
             if (!resps.FileContains(key))
                 ProcessRequest(key);

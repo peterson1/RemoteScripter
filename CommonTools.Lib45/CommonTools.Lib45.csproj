@@ -77,6 +77,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileSystemTools\SpecialFolderExtensions.cs" />
     <Compile Include="ValueConverters\DecimalProxyConverter.cs" />
     <Compile Include="ValueConverters\FirstLetterConverter.cs" />
     <Compile Include="ValueConverters\SpanDaysConverter.cs" />

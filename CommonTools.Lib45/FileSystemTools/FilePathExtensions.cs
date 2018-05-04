@@ -68,6 +68,11 @@ namespace CommonTools.Lib45.FileSystemTools
             return byts;
         }
 
+
+        public static bool IsInTempDir(this string filePath) 
+            => filePath.Contains(Path.GetTempPath());
+
+
         //public static string CreateTempCopy(this string filePath)
         //{
         //    var tmpPath = Path.GetTempFileName();
@@ -149,7 +154,7 @@ namespace CommonTools.Lib45.FileSystemTools
             if (!File.Exists(filePath))
                 throw Fault.MissingFile(filePath);
 
-            return File.ReadLines(filePath)
+            return File.ReadLines(filePath).ToList()
                     .Any(_ => _.Contains(text));
         }
 
