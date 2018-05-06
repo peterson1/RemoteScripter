@@ -35,11 +35,12 @@ namespace CommonTools.Lib45.BaseViewModels
         public    abstract string  TypeDescription  { get; }
         protected abstract bool    IsValidDraft     (TDraft draft, out string whyInvalid);
 
-        protected virtual bool CanEncodeNewDraft  ()             => true;
-        protected virtual void SaveNewRecord      (TDraft draft) { }
-        protected virtual Task SaveNewRecordAsync (TDraft draft) => Task.Delay(0);
-        protected virtual void UpdateRecord       (TDraft record) { }
-        protected virtual Task UpdateRecordAsync  (TDraft record) => Task.Delay(0);
+        protected virtual bool   CanEncodeNewDraft  ()             => true;
+        protected virtual void   SaveNewRecord      (TDraft draft) { }
+        protected virtual Task   SaveNewRecordAsync (TDraft draft) => Task.Delay(0);
+        protected virtual void   UpdateRecord       (TDraft record) { }
+        protected virtual Task   UpdateRecordAsync  (TDraft record) => Task.Delay(0);
+        protected virtual TDraft GetNewDraft        () => new TDraft();
 
         protected virtual void OnSaveCompleted    () { }
 
@@ -56,22 +57,18 @@ namespace CommonTools.Lib45.BaseViewModels
         private void EncodeNewDraft()
         {
             SaveDraftCmd = R2Command.Async(ExecuteSaveDraft, _ => CanSave(), $"Save {TypeDescription}");
-            Draft        = new TDraft();
-            SetNewDraftDefaults(Draft);
+            //Draft        = new TDraft();
+            //SetNewDraftDefaults(Draft);
+            Draft = GetNewDraft();
             this.Show<TWindow>(showModal: true);
         }
 
 
-        protected virtual void SetNewDraftDefaults(TDraft draft)
-        {
-        }
 
 
         public bool? EditCurrentRecord(TDraft currentItem)
         {
             SaveDraftCmd = R2Command.Async(ExecuteUpdateRecord, _ => CanSave(), $"Save {TypeDescription}");
-            //Draft        = new TDraft();
-            //LoadValuesToDraft(currentItem, Draft);
             Draft = CreateDraftFromRecord(currentItem);
             return this.Show<TWindow>(showModal: true);
         }

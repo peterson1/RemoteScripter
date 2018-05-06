@@ -57,21 +57,35 @@ namespace RemoteScripter.ResponderApp
             var key   = File.ReadLines(reqs).ToList().Last().Trim();
             var resps = Default.ResponsesFilePath;
             if (!resps.FileContains(key))
-                ProcessRequest(key);
+                await ProcessRequest(key);
         }
 
 
-        private void ProcessRequest(string requestKey)
+        private async Task ProcessRequest(string requestKey)
         {
             StartBeingBusy("Responding to request ...");
-
-            File.AppendAllText(Default
-                .ResponsesFilePath, L.f + requestKey);
-
             Process.Start(ProcessPath);
-
+            await PostResponse(requestKey, true);
             StopBeingBusy();
 
+        }
+
+
+        private async Task PostResponse(string requestKey, bool retryOnce)
+        {
+            try
+            {
+                File.AppendAllText(Default
+                    .ResponsesFilePath, L.f + requestKey);
+            }
+            catch (IOException)
+            {
+                if (retryOnce)
+                {
+                    await Task.Delay(1000);
+                    await PostResponse(requestKey, false);
+                }
+            }
         }
     }
 }

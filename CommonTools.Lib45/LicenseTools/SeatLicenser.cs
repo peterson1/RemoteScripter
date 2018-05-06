@@ -4,6 +4,7 @@ using CommonTools.Lib45.Cryptography;
 using CommonTools.Lib11.JsonTools;
 using System;
 using System.Management;
+using System.IO;
 
 namespace CommonTools.Lib45.LicenseTools
 {
@@ -61,6 +62,10 @@ namespace CommonTools.Lib45.LicenseTools
             try
             {
                 credentials = json.ReadJson<T>();
+            }
+            catch (FileNotFoundException ex)
+            {
+                throw ex;
             }
             catch
             {
