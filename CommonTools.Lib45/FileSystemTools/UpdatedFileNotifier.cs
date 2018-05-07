@@ -1,10 +1,8 @@
-﻿using CommonTools.Lib11.ExceptionTools;
-using CommonTools.Lib11.InputCommands;
+﻿using CommonTools.Lib11.InputCommands;
 using CommonTools.Lib11.StringTools;
 using CommonTools.Lib45.InputCommands;
 using CommonTools.Lib45.ThreadTools;
 using PropertyChanged;
-using System;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -30,6 +28,7 @@ namespace CommonTools.Lib45.FileSystemTools
         public IR2Command  ExecuteCmd           { get; }
         public bool        IsFileChanged        { get; private set; }
         public bool        ExecuteOnFileChanged { get; set; }
+        public int         NotifyDelayMS        { get; set; } = 2000;
 
 
         protected virtual void OnExecuteClick () { }
@@ -60,7 +59,7 @@ namespace CommonTools.Lib45.FileSystemTools
                 if (!_isDelaying)
                 {
                     _isDelaying   = true;
-                    await Task.Delay(1000);
+                    await Task.Delay(NotifyDelayMS);
                     IsFileChanged = true;
                     OnFileChanged();
                     _isDelaying   = false;

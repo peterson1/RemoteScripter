@@ -55,7 +55,7 @@ namespace CommonTools.Lib45.BaseViewModels
         }
 
 
-        private void ExecuteDeleteRecord(TDTO dto)
+        protected void ExecuteDeleteRecord(TDTO dto)
         {
             DeleteRecord(_repo, dto);
             UpdateTotalSum();
@@ -98,7 +98,7 @@ namespace CommonTools.Lib45.BaseViewModels
 
 
 
-        private void UpdateTotalSum()
+        protected void UpdateTotalSum()
         {
             if (SummedAmount == null) return;
 

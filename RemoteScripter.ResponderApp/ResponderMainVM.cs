@@ -15,6 +15,7 @@ namespace RemoteScripter.ResponderApp
     class ResponderMainVM : UpdatedExeVMBase<ResponderArguments>
     {
         private FileSystemWatcher _watchr;
+        private bool              _isDelaying;
         protected override string CaptionPrefix => "RS Responder";
 
 
@@ -52,12 +53,16 @@ namespace RemoteScripter.ResponderApp
 
         private async Task OnChangeDetected()
         {
+            if (_isDelaying) return;
+            _isDelaying = true;
             await Task.Delay(Default.OnChangeDelayMS);
             var reqs  = Default.RequestsFilePath;
             var key   = File.ReadLines(reqs).ToList().Last().Trim();
             var resps = Default.ResponsesFilePath;
             if (!resps.FileContains(key))
                 await ProcessRequest(key);
+
+            _isDelaying = false;
         }
 
 
